@@ -13,23 +13,32 @@ class Solution {
         // }
 
         // 2. Two pass Hash Table
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement) && map.get(complement) != i) {
-                return new int[] { i, map.get(complement) };
-            }
+    //     Map<Integer, Integer> map = new HashMap<>();
+    //     for (int i = 0; i < nums.length; i++) {
+    //         map.put(nums[i], i);
+    //     }
+    //     for (int i = 0; i < nums.length; i++) {
+    //         int complement = target - nums[i];
+    //         if (map.containsKey(complement) && map.get(complement) != i) {
+    //             return new int[] { i, map.get(complement) };
+    //         }
 
-        }
-        return new int[] {};
+    //     }
+    //     return new int[] {};
 
+    // }
+
+    //One pass Hash Table simultaneously
+    HashMap<Integer, Integer> map = new HashMap<>(); //Hashmap is optimize for Key O(1)
+    for(int i = 0; i < nums.length; i++){
+        int complement = target - nums[i];
+        if(map.containsKey(complement) ){
+            return new int[]{map.get(complement), i};
+        }
+        map.put(nums[i], i);
     }
+            return new int[]{-1,-1};
 
-    //One pass Hash Table
-    // HashMap<Integer, Integer> map = new HashMap<>();
-    // for(int i )
 
+}
 }
