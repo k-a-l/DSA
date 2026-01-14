@@ -13,6 +13,7 @@ class Solution {
         // }
 
         // 2. Two pass Hash Table
+        //Complement is the next value which needs to be in there to reach the target
     //     Map<Integer, Integer> map = new HashMap<>();
     //     for (int i = 0; i < nums.length; i++) {
     //         map.put(nums[i], i);
@@ -29,16 +30,28 @@ class Solution {
     // }
 
     //One pass Hash Table simultaneously
-    HashMap<Integer, Integer> map = new HashMap<>(); //Hashmap is optimize for Key O(1)
-    for(int i = 0; i < nums.length; i++){
-        int complement = target - nums[i];
-        if(map.containsKey(complement) ){
-            return new int[]{map.get(complement), i};
+//     HashMap<Integer, Integer> map = new HashMap<>(); //Hashmap is optimize for Key O(1)
+//     for(int i = 0; i < nums.length; i++){
+//         int complement = target - nums[i];
+//         if(map.containsKey(complement)){
+//             return new int[]{map.get(complement), i};
+//         }
+//         map.put(nums[i], i);
+//     }
+//             return new int[]{-1,-1};
+
+
+// }
+
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++){
+        int remainingFinalValue = target - nums[i]; //nums[i] -> initial value
+        if(map.containsKey(remainingFinalValue)){
+            return new int[]{map.get(remainingFinalValue), i};
         }
         map.put(nums[i], i);
+
     }
-            return new int[]{-1,-1};
-
-
+    return new int[]{-1,-1};
 }
 }
