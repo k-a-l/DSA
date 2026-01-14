@@ -43,13 +43,13 @@ class Solution {
 
 // }
 
-    HashMap<Integer, Integer> map = new HashMap<>();
+    HashMap<Integer, Integer> map = new HashMap<>(); //Hashmap is optimize for Key O(1)
     for (int i = 0; i < nums.length; i++){
         int remainingFinalValue = target - nums[i]; //nums[i] -> initial value
         if(map.containsKey(remainingFinalValue)){
             return new int[]{map.get(remainingFinalValue), i};
         }
-        map.put(nums[i], i);
+        map.put(nums[i], i); //keeping value as the key and the index as the value [key:value] = [value : index]
 
     }
     return new int[]{-1,-1};
