@@ -45,10 +45,9 @@ class Solution {
 for (int i = 0; i < prices.length; i ++){
     if (prices[i]< buy){
         buy = prices[i];
-    }
-    int currentProfit = prices[i] - buy;
-    if(currentProfit > maxProfit){
-        maxProfit = currentProfit;
+    }else
+    if(prices[i] - buy > maxProfit){
+        maxProfit = prices[i] - buy;
     }
 }
 return maxProfit;
