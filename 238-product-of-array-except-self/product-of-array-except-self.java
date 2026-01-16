@@ -16,7 +16,7 @@ class Solution {
     // }
         int[] prefix = new int[n];
         // int[] suffix = new int[n];
-        prefix[0] = 1;
+        // prefix[0] = 1;
         // suffix[] = 1;
         //prefix
 //         for(int i = 1 ; i < n; i++ ){
@@ -33,16 +33,20 @@ class Solution {
 //         return result;
 
 // }
-//prefix
+
+//in two loops
+//prefix -> result
+result[0] = 1;
     for(int i = 1; i < n; i++){
-        prefix[i] = prefix[i-1] * nums[i-1];
+        result[i] = result[i-1] * nums[i-1];
     }
 
     //Suffix + result
     int suffix = 1;
     for(int i = n-1; i >= 0; i--){
-        result[i] = prefix[i] * suffix; 
+        result[i] *= suffix; 
         suffix *= nums[i];
+
     }
 
     return result;
