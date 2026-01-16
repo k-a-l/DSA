@@ -13,7 +13,7 @@ class Solution {
         // }
 
     //O(n2) not acceptable
-        int maxSum = nums[0];
+        int maxSum = Integer.MIN_VALUE;
         // for(int st = 0; st < n; st++){
         //     int currentSum = 0;
         //     for(int end = st; end < n; end++){
@@ -26,17 +26,13 @@ class Solution {
         // }
         // return maxSum;
 
-        int currentSum = nums[0];
-        // for(int i = 0; i < n; i++){
-        //     currentSum += nums[i];
-        //     maxSum = Math.max(currentSum, maxSum);
-        //     if(currentSum < 0){
-        //         currentSum = 0;
-        //     }
-        // }
-        for (int i = 1; i < nums.length; i++) {
-            currentSum = Math.max(nums[i], currentSum + nums[i]);
-            maxSum = Math.max(maxSum, currentSum);
+        int currentSum = 0;
+        for(int i = 0; i < n; i++){
+            currentSum += nums[i];
+            maxSum = Math.max(currentSum, maxSum);
+            if(currentSum < 0){
+                currentSum = 0;
+            }
         }
         return maxSum;
     }
