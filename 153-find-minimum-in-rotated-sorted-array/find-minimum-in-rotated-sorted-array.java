@@ -12,11 +12,14 @@ class Solution {
     // }
 
     // return nums[l];
+
+    //Simple brute force
     int min = nums[0];
-    for(int i = 0; i < nums.length; i++){
-        if(min > nums[i]){
-            min = nums[i];
-        }
+    for(int num : nums){
+        // if(min > nums[i]){
+        //     min = nums[i];
+        // }
+        min = min > num ? num : min;
     }
     return min;
   }
