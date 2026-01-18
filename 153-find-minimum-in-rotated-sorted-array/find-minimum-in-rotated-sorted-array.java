@@ -19,7 +19,9 @@ class Solution {
         // if(min > nums[i]){
         //     min = nums[i];
         // }
-        min = min > num ? num : min;
+        // min = min > num ? num : min;
+        min = Math.min(min, num);
+
     }
     return min;
   }
