@@ -15,14 +15,18 @@ class Solution {
 
     //Simple brute force
     int min = nums[0];
-    for(int num : nums){
+    int index = 0;
+    for(int i = 0; i < nums.length; i++){
         // if(min > nums[i]){
         //     min = nums[i];
         // }
-        min = min > num ? num : min;
-        // min = Math.min(min, num);
+        // min = min > num ? num : min;
+        min = Math.min(min, nums[i]);
+        index = i;
+
 
     }
+    System.out.println(index);
     return min;
   }
     
